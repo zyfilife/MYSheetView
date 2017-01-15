@@ -1,21 +1,25 @@
 //
-//  MFSlideInPresentationController.swift
+//  SlideInPresentationController.swift
 //  SmartCloud
 //
-//  Created by 朱益锋 on 2017/1/12.
-//  Copyright © 2017年 SmartPower. All rights reserved.
+//  Created by 朱益锋 on 2017/1/14.
+//  Copyright © 2017年 朱益锋. All rights reserved.
 //
 
 import UIKit
 
-class MFSlideInPresentationController: UIPresentationController {
+class SlideInPresentationController: UIPresentationController {
     
     fileprivate var maskView: UIView!
     private var direction: PrensentaionDirection
     
-    /**自定义弹出控制器视图宽比例，必须小于等于1.0*/
+    /**
+     自定义弹出控制器视图宽比例，必须小于等于1.0
+     */
     var customWidth: CGFloat?
-    /**自定义弹出控制器视图高比例，必须小于等于1.0*/
+    /**
+     自定义弹出控制器视图高比例，必须小于等于1.0
+     */
     var customHeight: CGFloat?
     
     var defaultWidthRatio: CGFloat = 2.0/3.0
@@ -84,14 +88,14 @@ class MFSlideInPresentationController: UIPresentationController {
     }
 }
 
-extension MFSlideInPresentationController {
-    func setupUIWithMaskView() {
+extension SlideInPresentationController {
+    fileprivate func setupUIWithMaskView() {
         self.maskView = UIView()
         self.maskView.translatesAutoresizingMaskIntoConstraints = false
         self.maskView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
         self.maskView.alpha = 0.0
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(MFSlideInPresentationController.clickMaskViewAction(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SlideInPresentationController.clickMaskViewAction(_:)))
         self.maskView.addGestureRecognizer(tap)
     }
     

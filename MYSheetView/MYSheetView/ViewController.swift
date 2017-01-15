@@ -14,10 +14,15 @@ class ViewController: UIViewController {
     
     var direction = PrensentaionDirection.left
     
-    let delegate = MFSlideInPrensentationManager()
+    let slideInPrensentationDelegate = SlideInPrensentationDelegate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.datePickerButton.layer.cornerRadius = 3
+        self.datePickerButton.layer.borderColor = self.datePickerButton.titleLabel?.textColor.cgColor
+        self.datePickerButton.layer.borderWidth = 1
+        self.datePickerButton.layer.masksToBounds = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,11 +33,13 @@ class ViewController: UIViewController {
     
     @IBAction func showDatePicker(_ sender: UIButton) {
         let viewController = MainHelper.instantiateViewControllerWithIdentifier(MainHelper.kDatePickerViewController) as! DatePickerViewController
-        self.delegate.direction = self.direction
-        self.delegate.customHeight = 260
-        self.delegate.customWidth = self.view.frame.size.width - 50*2
-        self.delegate.disableCompactHeight = true
-        viewController.transitioningDelegate = self.delegate
+        viewController.name = "DatePicker"
+        viewController.currentDate = nil
+        self.slideInPrensentationDelegate.direction = self.direction
+        self.slideInPrensentationDelegate.customHeight = 260
+        self.slideInPrensentationDelegate.customWidth = self.view.frame.size.width - 50*2
+        self.slideInPrensentationDelegate.disableCompactHeight = true
+        viewController.transitioningDelegate = self.slideInPrensentationDelegate
         viewController.modalPresentationStyle = .custom
         self.present(viewController, animated: true, completion: nil)
     }

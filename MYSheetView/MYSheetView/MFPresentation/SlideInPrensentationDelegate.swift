@@ -1,18 +1,22 @@
 //
-//  MFSlideInPrensentationManager.swift
+//  SlideInPrensentationDelegate.swift
 //  SmartCloud
 //
-//  Created by 朱益锋 on 2017/1/12.
-//  Copyright © 2017年 SmartPower. All rights reserved.
+//  Created by 朱益锋 on 2017/1/14.
+//  Copyright © 2017年 朱益锋. All rights reserved.
 //
 
 import UIKit
 
-enum PrensentaionDirection {
-    case left, top, right, bottom, center
+enum PrensentaionDirection: Int {
+    case left=0
+    case top
+    case right
+    case bottom
+    case center
 }
 
-class MFSlideInPrensentationManager: NSObject {
+class SlideInPrensentationDelegate: NSObject {
     
     var direction = PrensentaionDirection.left
     var disableCompactHeight = true
@@ -21,10 +25,10 @@ class MFSlideInPrensentationManager: NSObject {
     var customHeight: CGFloat?
 }
 
-extension MFSlideInPrensentationManager: UIViewControllerTransitioningDelegate {
+extension SlideInPrensentationDelegate: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        let presentationController = MFSlideInPresentationController(presentedViewController: presented, presenting: presenting, direction: self.direction)
+        let presentationController = SlideInPresentationController(presentedViewController: presented, presenting: presenting, direction: self.direction)
         presentationController.customWidth = self.customWidth
         presentationController.customHeight = self.customHeight
         presentationController.delegate = self
@@ -32,15 +36,15 @@ extension MFSlideInPrensentationManager: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return MFSliderPresentationAnimator(direction: direction, isPresentation: true)
+        return SliderPresentationAnimator(direction: direction, isPresentation: true)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return MFSliderPresentationAnimator(direction: direction, isPresentation: false)
+        return SliderPresentationAnimator(direction: direction, isPresentation: false)
     }
 }
 
-extension MFSlideInPrensentationManager: UIAdaptivePresentationControllerDelegate {
+extension SlideInPrensentationDelegate: UIAdaptivePresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         if traitCollection.verticalSizeClass == .compact && self.disableCompactHeight {
             return .overFullScreen

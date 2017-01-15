@@ -12,9 +12,9 @@
 		404009A61E2A658400DD6C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404009A41E2A658400DD6C39 /* Main.storyboard */; };
 		404009A81E2A658400DD6C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404009A71E2A658400DD6C39 /* Assets.xcassets */; };
 		404009AB1E2A658400DD6C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404009A91E2A658400DD6C39 /* LaunchScreen.storyboard */; };
-		404009B61E2AF8D100DD6C39 /* MFSlideInPrensentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B31E2AF8D100DD6C39 /* MFSlideInPrensentationManager.swift */; };
-		404009B71E2AF8D100DD6C39 /* MFSlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B41E2AF8D100DD6C39 /* MFSlideInPresentationController.swift */; };
-		404009B81E2AF8D100DD6C39 /* MFSliderPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B51E2AF8D100DD6C39 /* MFSliderPresentationAnimator.swift */; };
+		404009B61E2AF8D100DD6C39 /* SlideInPrensentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B31E2AF8D100DD6C39 /* SlideInPrensentationDelegate.swift */; };
+		404009B71E2AF8D100DD6C39 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B41E2AF8D100DD6C39 /* SlideInPresentationController.swift */; };
+		404009B81E2AF8D100DD6C39 /* SliderPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B51E2AF8D100DD6C39 /* SliderPresentationAnimator.swift */; };
 		404009BA1E2AF96B00DD6C39 /* MainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009B91E2AF96B00DD6C39 /* MainHelper.swift */; };
 		404009BC1E2B05AB00DD6C39 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404009BB1E2B05AB00DD6C39 /* DatePickerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -27,9 +27,9 @@
 		404009A71E2A658400DD6C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		404009AA1E2A658400DD6C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		404009AC1E2A658400DD6C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		404009B31E2AF8D100DD6C39 /* MFSlideInPrensentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFSlideInPrensentationManager.swift; sourceTree = "<group>"; };
-		404009B41E2AF8D100DD6C39 /* MFSlideInPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFSlideInPresentationController.swift; sourceTree = "<group>"; };
-		404009B51E2AF8D100DD6C39 /* MFSliderPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFSliderPresentationAnimator.swift; sourceTree = "<group>"; };
+		404009B31E2AF8D100DD6C39 /* SlideInPrensentationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPrensentationDelegate.swift; sourceTree = "<group>"; };
+		404009B41E2AF8D100DD6C39 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
+		404009B51E2AF8D100DD6C39 /* SliderPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderPresentationAnimator.swift; sourceTree = "<group>"; };
 		404009B91E2AF96B00DD6C39 /* MainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHelper.swift; sourceTree = "<group>"; };
 		404009BB1E2B05AB00DD6C39 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,18 +72,19 @@
 				404009B91E2AF96B00DD6C39 /* MainHelper.swift */,
 				404009A21E2A658400DD6C39 /* ViewController.swift */,
 				404009BB1E2B05AB00DD6C39 /* DatePickerViewController.swift */,
-				404009B21E2AF8D100DD6C39 /* MFPresentation */,
+				404009B21E2AF8D100DD6C39 /* MYPresentation */,
 			);
 			path = MYSheetView;
 			sourceTree = "<group>";
 		};
-		404009B21E2AF8D100DD6C39 /* MFPresentation */ = {
+		404009B21E2AF8D100DD6C39 /* MYPresentation */ = {
 			isa = PBXGroup;
 			children = (
-				404009B31E2AF8D100DD6C39 /* MFSlideInPrensentationManager.swift */,
-				404009B41E2AF8D100DD6C39 /* MFSlideInPresentationController.swift */,
-				404009B51E2AF8D100DD6C39 /* MFSliderPresentationAnimator.swift */,
+				404009B31E2AF8D100DD6C39 /* SlideInPrensentationDelegate.swift */,
+				404009B41E2AF8D100DD6C39 /* SlideInPresentationController.swift */,
+				404009B51E2AF8D100DD6C39 /* SliderPresentationAnimator.swift */,
 			);
+			name = MYPresentation;
 			path = MFPresentation;
 			sourceTree = "<group>";
 		};
@@ -161,12 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				404009BA1E2AF96B00DD6C39 /* MainHelper.swift in Sources */,
-				404009B61E2AF8D100DD6C39 /* MFSlideInPrensentationManager.swift in Sources */,
+				404009B61E2AF8D100DD6C39 /* SlideInPrensentationDelegate.swift in Sources */,
 				404009BC1E2B05AB00DD6C39 /* DatePickerViewController.swift in Sources */,
-				404009B81E2AF8D100DD6C39 /* MFSliderPresentationAnimator.swift in Sources */,
+				404009B81E2AF8D100DD6C39 /* SliderPresentationAnimator.swift in Sources */,
 				404009A31E2A658400DD6C39 /* ViewController.swift in Sources */,
 				404009A11E2A658400DD6C39 /* AppDelegate.swift in Sources */,
-				404009B71E2AF8D100DD6C39 /* MFSlideInPresentationController.swift in Sources */,
+				404009B71E2AF8D100DD6C39 /* SlideInPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,14 @@
 //
-//  MFSliderPresentationAnimator.swift
+//  SliderPresentationAnimator.swift
 //  SmartCloud
 //
-//  Created by 朱益锋 on 2017/1/12.
-//  Copyright © 2017年 SmartPower. All rights reserved.
+//  Created by 朱益锋 on 2017/1/14.
+//  Copyright © 2017年 朱益锋. All rights reserved.
 //
 
 import UIKit
 
-class MFSliderPresentationAnimator: NSObject {
+class SliderPresentationAnimator: NSObject {
     
     let direction: PrensentaionDirection
     let isPresentation: Bool
@@ -20,7 +20,7 @@ class MFSliderPresentationAnimator: NSObject {
     }
 }
 
-extension MFSliderPresentationAnimator: UIViewControllerAnimatedTransitioning {
+extension SliderPresentationAnimator: UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3

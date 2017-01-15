@@ -15,21 +15,17 @@ class DatePickerViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var name: String? = nil {
-        didSet {
-            self.titleLabel.text = self.name != nil ? self.name!: nil
-        }
-    }
+    var name: String? 
     
-    var currentDate: Date? = nil {
-        didSet {
-            self.datePicker.date = self.currentDate != nil ? self.currentDate!: Date()
-        }
-    }
+    var currentDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.titleLabel.contentMode = .bottom
+        
+        self.titleLabel.text = self.name != nil ? self.name!: nil
+        self.datePicker.date = self.currentDate != nil ? self.currentDate!: Date()
         // Do any additional setup after loading the view.
     }
 
