@@ -46,13 +46,37 @@ extension SliderPresentationAnimator: UIViewControllerAnimatedTransitioning {
         case .bottom:
             dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
         case .center:
-            dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+            break
         }
         
         let initialFrame = isPresentation ? dismissedFrame : presentedFrame
         let finalFrame = isPresentation ? presentedFrame : dismissedFrame
         
         let animationDuration = transitionDuration(using: transitionContext)
+        
+        if direction == .center {
+            controller.view.frame = finalFrame
+            if isPresentation {
+                controller.view.alpha = 0.0
+                controller.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseIn, .allowUserInteraction, .beginFromCurrentState], animations: {
+                    controller.view.alpha = 1.0
+                    controller.view.transform = CGAffineTransform.identity
+                }) { (finished) in
+                    transitionContext.completeTransition(finished)
+                }
+            }else {
+                UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut, .allowUserInteraction, .beginFromCurrentState], animations: {
+                    controller.view.alpha = 0.0
+                    controller.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                }) { (finished) in
+                    transitionContext.completeTransition(finished)
+                }
+            }
+            
+            return
+        }
+        
         controller.view.frame = initialFrame
         UIView.animate(withDuration: animationDuration, animations: {
             controller.view.frame = finalFrame
